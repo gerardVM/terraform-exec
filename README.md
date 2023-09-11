@@ -2,7 +2,7 @@
 
 # terraform-exec fork
 
-This is a customized fork of the [terraform-exec](https://github.com/hashicorp/terraform-exec) library. This was necessary to be able to run Terraform inside a lambda function. Even though this is not a recommended approach, it is useful in the case that you want the lambda function to clone an existing repository and run Terraform on it.
+This fork of the [terraform-exec](https://github.com/hashicorp/terraform-exec) library was necessary to be able to run Terraform inside a lambda function. Even though this is not a recommended approach, it is useful in the case that you want the lambda function to clone an existing repository and run Terraform on it.
 
 ## Go compatibility
 
