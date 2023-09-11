@@ -1,14 +1,8 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/hashicorp/terraform-exec)](https://pkg.go.dev/github.com/hashicorp/terraform-exec)
 
-# terraform-exec
+# terraform-exec fork
 
-A Go module for constructing and running [Terraform](https://terraform.io) CLI commands. Structured return values use the data types defined in [terraform-json](https://github.com/hashicorp/terraform-json).
-
-The [Terraform Plugin SDK](https://github.com/hashicorp/terraform-plugin-sdk) is the canonical Go interface for Terraform plugins using the gRPC protocol. This library is intended for use in Go programs that make use of Terraform's other interface, the CLI. Importing this library is preferable to importing `github.com/hashicorp/terraform/command`, because the latter is not intended for use outside Terraform Core.
-
-While terraform-exec is already widely used, please note that this module is **not yet at v1.0.0**, and that therefore breaking changes may occur in minor releases.
-
-We strictly follow [semantic versioning](https://semver.org).
+This is a customized fork of the [terraform-exec](https://github.com/hashicorp/terraform-exec) library. This was necessary to be able to run Terraform inside a lambda fucntion. Even though this is not a recommended approach, it is useful in the case that you want the lambda function to clone an existing repository and run Terraform on it.
 
 ## Go compatibility
 

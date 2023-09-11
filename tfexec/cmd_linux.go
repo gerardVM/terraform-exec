@@ -4,6 +4,7 @@
 package tfexec
 
 import (
+	"os"
 	"context"
 	"fmt"
 	"os/exec"
@@ -15,11 +16,13 @@ import (
 func (tf *Terraform) runTerraformCmd(ctx context.Context, cmd *exec.Cmd) error {
 	var errBuf strings.Builder
 
-	cmd.SysProcAttr = &syscall.SysProcAttr{
-		// kill children if parent is dead
-		Pdeathsig: syscall.SIGKILL,
-		// set process group ID
-		Setpgid: true,
+	if _, ok := os.LookupEnv("LAMBDA_TASK_ROOT"); !ok {
+		cmd.SysProcAttr = &syscall.SysProcAttr{
+			// kill children if parent is dead
+			Pdeathsig: syscall.SIGKILL,
+			// set process group ID
+			Setpgid: true,
+		}
 	}
 
 	// check for early cancellation
